@@ -3,12 +3,12 @@ public class PrintCalender {
 	public static void main(String[] args) {
 		GregorianCalendar g = new GregorianCalendar();
 		ArrayList<String> day=new ArrayList();
-		/*Scanner input=new Scanner(System.in);
+		Scanner input=new Scanner(System.in);
 		System.out.println("Please input year(ex:2016).");
 		int y=input.nextInt();
 		System.out.println("Please input month(ex:3).");
-		int m=input.nextInt();
-		g.set(y,m,g.get(Calendar.DATE));*/
+		int m=input.nextInt()-1;
+		g.set(y,m,g.get(Calendar.DATE));
 		System.out.println(g.getTime());
 		System.out.print("       ");
 		switch (g.get(GregorianCalendar.MONTH)) {
@@ -28,7 +28,7 @@ public class PrintCalender {
 		System.out.println("	"+g.get(GregorianCalendar.YEAR));
 		System.out.println("---------------------------");
 		System.out.println("Sun Mon Tue Wed Thr Fri Sat");
-		g.set(g.get(Calendar.YEAR),g.get(Calendar.MONTH),31);
+		g.set(y,m,31);
 		switch (g.get(Calendar.DATE)) {
 			case 31:
 				for(int i=1;i<=9;i++) {
@@ -59,7 +59,7 @@ public class PrintCalender {
 					day.add(" "+Long.toString(i));
 				}break;
 		}
-		g.set(g.get(Calendar.YEAR),g.get(Calendar.MONTH),1);
+		g.set(y,m,1);
 		switch(g.get(GregorianCalendar.DAY_OF_WEEK)) {
 			case 1:break;
 			case 2:for(int i=1;i<=1;i++){day.add(0,"   ");}break;
